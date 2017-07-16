@@ -1,1 +1,1 @@
-from .control import *
+from .cartridge import *
