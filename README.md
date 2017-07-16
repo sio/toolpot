@@ -1,6 +1,7 @@
 # toolpot - An assorted collection of Python tools
 You wouldn't expect a professional to store his tools in a clay pot, would you?
-![toolpot logo](docs/logo/toolpot.svg)
+
+![toolpot logo](docs/logo/toolpot.png)
 
 
 # Package contents
