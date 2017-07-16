@@ -1,5 +1,5 @@
 """
-Control Openshift2 instance
+Control Openshift2 cartridges
 """
 
 
