@@ -18,6 +18,14 @@ def update():
     pip as a recommended tool for day-to-day Python package management
     """
     import pip
+    
+    # Simple reinstall does not delete obsolete files from previous versions
+    pip.main([
+        "uninstall",
+        "-y",
+        "toolpot",
+        ])
+    
     pip.main([
         "install",
         __git__,
