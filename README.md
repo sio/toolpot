@@ -34,6 +34,12 @@ Use pip to install the package:
 
 After installation use `import toolpot` from your Python scripts
 
+
+# Contributing
+All contributions are welcome!
+Please check [CONTRIBUTING.md](CONTRIBUTING.md) for details
+
+
 # License and copyright
 Copyright © 2017 Vitaly Potyarkin
 ```
