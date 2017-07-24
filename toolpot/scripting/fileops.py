@@ -51,3 +51,18 @@ def path_fullsplit(path):
         path = head
     elements.reverse()
     return elements
+
+
+def file_hash(path):
+    """
+    Return a hash of given file
+
+    Hash function is not guaranteed to stay the same. These hashes are
+    not intended for long-term storing, only for comparing different
+    files at run time.
+    """
+    hasher = hashlib.sha256()
+    with open(path, "rb") as file:
+        for chunk in iter(lambda: file.read(2**16), bytes()):
+            hasher.update(chunk)
+    return hasher.hexdigest()

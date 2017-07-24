@@ -1,0 +1,43 @@
+"""
+Find and delete duplicated files
+"""
+
+import os
+from collections import defaultdict, namedtuple
+
+from .fileops import file_hash
+
+
+def find_duplicates(paths):
+    """
+    Find duplicate files in given sequence of paths.
+
+    Return a dictionary where keys contain duplicate metadata (size, hash)
+    and values are lists of filepaths that have this metadata in common
+    """
+    sizes = defaultdict(list)
+    for name in paths:
+        sizes[os.path.getsize(name)].append(name)
+
+    Duplicate = namedtuple("Duplicate", ["size", "hash"])
+    hashes = defaultdict(list)
+    for size, files in sizes.items():
+        if len(files) > 1:
+            for name in files:
+                hash = file_hash(name)
+                hashes[Duplicate(size, hash)].append(name)
+
+    return {info: paths for info, paths in hashes.items() if len(paths)>1}
+
+
+def remove_duplicates(paths, keep_new=False):
+    """
+    Given a sequence of paths to files find duplicates among them and
+    delete all duplicated files keeping only the oldest one.
+
+    If keep_new=True keeps the newest of duplicates.
+    """
+    for files in find_duplicates(paths).values():
+        ordered = sorted(files, key=os.path.getctime, reverse=keep_new)
+        while len(ordered) > 1:
+            os.remove(ordered.pop())
