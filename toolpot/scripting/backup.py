@@ -48,12 +48,11 @@ def list_backups(directory, prefix=""):
 
 
 def rotate(directory, prefix="", max_number=10):
-    """
-    Remove old backups or logs
-
-    Older files MUST come first when sorted by filename
-    """
-    files = sorted(list_backups(directory, prefix))
+    """Remove old backups or logs"""
+    files = sorted(
+                sorted(list_backups(directory, prefix)),
+                key=os.path.getctime
+            )  # order by ctime, then by name
     deleted_count = 0
     while len(files) > max_number:
         os.remove(files.pop(0))
