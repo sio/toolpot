@@ -8,6 +8,8 @@ import tarfile
 from datetime import datetime
 from glob import glob
 
+from .fileops import common_parent
+
 
 def archive(archive_file, *content):
     """Create tar.gz archive, do not repeat unnecessary directory structure"""
