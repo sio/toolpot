@@ -12,13 +12,20 @@ from .fileops import common_parent
 
 
 def archive(archive_file, *content):
-    """Create tar.gz archive, do not repeat unnecessary directory structure"""
+    """Create tar.xz archive, do not repeat unnecessary directory structure"""
+    # IMPORTANT:
+    # Why tar.xz?
+    #   It is preferred to tar.bz2 (see kernel.org) due to faster uncompressing
+    # Why not tar.gz?
+    #   tar.gz stores timestamp and archive name as part of the data, so
+    #   two archives having the same content will not be identical.
+    #   Deduplication (based on file hash or bytestream) will not work.
     if len(content):
         archive_dir = os.path.dirname(archive_file)
         if archive_dir and not os.path.isdir(archive_dir):
             raise ValueError("directory not found: %s" % archive_dir)
         base_dir = common_parent(*content)
-        with tarfile.open(archive_file, "w:gz") as tar:
+        with tarfile.open(archive_file, "w:xz") as tar:
             for path in content:
                 kwargs = dict()
                 if base_dir:
@@ -33,7 +40,7 @@ def archive(archive_file, *content):
         print("Created archive: %s" % archive_file)
 
 
-def make_name(prefix="", date_format="%Y%m%d-%H%M", extension="tar.gz"):
+def make_name(prefix="", date_format="%Y%m%d-%H%M", extension="tar.xz"):
     """Generate archive name that can be used for sorting (prefix_date.extension)"""
     parts = list()
     if prefix: parts.append(prefix)
