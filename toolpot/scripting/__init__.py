@@ -7,4 +7,20 @@ found in shell. Plus Python smoothes a lot of edge cases
 (read: string escaping) that can be time consuming to do properly in bash
 """
 
-from .backup import *
+__all__ = [
+    "archive",
+    "make_name",
+    "rotate",
+    "common_parent",
+    "file_hash",
+    "find_duplicates",
+    "remove_duplicates",
+]
+
+from .backup import archive, \
+                    make_name, \
+                    rotate
+from .fileops import common_parent, \
+                     file_hash
+from .deduplicate import find_duplicates, \
+                         remove_duplicates
