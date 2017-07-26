@@ -14,6 +14,13 @@ def find_duplicates(paths):
 
     Return a dictionary where keys contain duplicate metadata (size, hash)
     and values are lists of filepaths that have this metadata in common
+
+    Sample output:
+    >> find_duplicates(["/path/to/foo", "/path/to/foo2", "/path/to/bar"])
+    {
+        Duplicate(size=`foo_size`, hash=`foo_hash`):
+            ["/path/to/foo", "/path/to/foo2"]
+    }
     """
     sizes = defaultdict(list)
     for name in paths:
