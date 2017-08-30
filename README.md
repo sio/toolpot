@@ -14,6 +14,9 @@ and reuse far beyond what can be found in shell. Plus Python smoothes a lot of
 edge cases (read: string escaping) that can be time consuming to do properly
 in bash
 
+### toolpot.linux
+Linux administration tools.
+
 ### toolpot.python
 Use these tools to simplify some repeating tasks when developing in Python
 
