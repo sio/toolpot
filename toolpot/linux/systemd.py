@@ -34,8 +34,8 @@ def control(daemon, action, wait=True, sudo=True):
 
 def control_isrunning(daemon, sudo=True):
     """Check if a daemon is running"""
-    REPLY_HEADER = "CLIENT_RESULT:"  # TODO: update this
-    REPLY_OK = "Application is running"  # TODO: update this
+    REPLY_HEADER = "%s.service" % daemon
+    REPLY_OK = "active (running)"
 
     exit_code, reply = control(daemon, "status", sudo=sudo)
     if REPLY_HEADER in reply:
