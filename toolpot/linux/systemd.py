@@ -37,7 +37,10 @@ def control_isrunning(daemon, sudo=True):
     REPLY_HEADER = "%s.service" % daemon
     REPLY_OK = "active (running)"
 
-    exit_code, reply = control(daemon, "status", sudo=sudo)
+    try:
+        exit_code, reply = control(daemon, "status", sudo=sudo)
+    except RuntimeError as e:
+        return False  # systemctl returns exit code 3 for stopped service
     if REPLY_HEADER in reply:
         return REPLY_OK in reply
     else:
