@@ -21,6 +21,7 @@ setup(
         "toolpot.python", 
         "toolpot.openshift", 
         "toolpot.sap", 
+        "toolpot.linux",
         ],
     scripts=[],
     package_data={},
