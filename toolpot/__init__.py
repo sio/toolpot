@@ -5,7 +5,7 @@ You wouldn't expect a professional to store his tools in a clay pot, would you?
 """
 
 
-__version__ = "0.0.1"
+__version__ = "0.0.2a"
 __author__ = "Vitaly Potyarkin"
 __git__ = "git+git://github.com/sio/toolpot.git"
 
