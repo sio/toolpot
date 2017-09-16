@@ -20,9 +20,6 @@ Linux administration tools.
 ### toolpot.python
 Use these tools to simplify some repeating tasks when developing in Python
 
-### toolpot.openshift
-Some scripting tools specific to Red Hat's Openshift automation
-
 ### toolpot.sap
 Helper utilites for SAP ERP users. No administrative access to SAP server is
 required or assumed

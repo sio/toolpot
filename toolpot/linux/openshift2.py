@@ -1,5 +1,10 @@
 """
-Control Openshift2 cartridges
+Some scripting tools specific to Red Hat's Openshift v2 automation
+
+On September 30, 2017 Openshift v2 has reached the End of Life.
+This code is deprecated now.
+
+For more infomation see: https://blog.openshift.com/migrate-to-v3-v2-eol/
 """
 
 
