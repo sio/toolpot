@@ -19,7 +19,6 @@ setup(
         "toolpot", 
         "toolpot.scripting", 
         "toolpot.python", 
-        "toolpot.openshift", 
         "toolpot.sap", 
         "toolpot.linux",
         ],
