@@ -24,6 +24,8 @@ Use these tools to simplify some repeating tasks when developing in Python
 Helper utilites for SAP ERP users. No administrative access to SAP server is
 required or assumed
 
+### toolpot.windows
+Classes and functions specific to Microsoft Windows.
 
 # Installation and usage
 This project is (and probably will always be) a work in progress. The only
