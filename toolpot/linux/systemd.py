@@ -3,13 +3,15 @@ Control daemons with systemctl
 """
 
 
+import getpass
 from subprocess import Popen, PIPE, STDOUT
 
 
 def control(daemon, action, wait=True, sudo=True):
     """Control a daemon with systemctl"""
     command_line = []
-    if sudo: command_line.append("sudo")
+    if sudo and getpass.getuser() != 'root':
+        command_line.append("sudo")
     command_line += ["systemctl", str(action), str(daemon)]
 
     process = Popen(command_line,
