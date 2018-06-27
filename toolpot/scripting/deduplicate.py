@@ -22,6 +22,9 @@ def find_duplicates(paths):
             ["/path/to/foo", "/path/to/foo2"]
     }
     """
+    if isinstance(paths, str):
+        paths = [paths,]
+
     sizes = defaultdict(list)
     for name in paths:
         sizes[os.path.getsize(name)].append(name)
