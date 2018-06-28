@@ -25,9 +25,19 @@ def find_duplicates(paths):
     if isinstance(paths, str):
         paths = [paths,]
 
+    def traverse(directory):
+        for parent, dirs, files in os.walk(directory):
+            for filename in files:
+                yield os.path.join(parent, filename)
+
     sizes = defaultdict(list)
-    for name in paths:
-        sizes[os.path.getsize(name)].append(name)
+    for item in paths:
+        if os.path.isdir(item):
+            files = traverse(item)
+        else:
+            files = [item]
+        for name in files:
+            sizes[os.path.getsize(name)].append(name)
 
     Duplicate = namedtuple("Duplicate", ["size", "hash"])
     hashes = defaultdict(list)
