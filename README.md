@@ -5,6 +5,13 @@ You wouldn't expect a professional to store his tools in a clay pot, would you?
 
 
 # Package contents
+
+Second level packages are considered public API. Third and further levels are
+intended for internal use only. For example: use
+`toolpot.scripting.find_duplicates` instead of
+`toolpot.scripting.deduplicate.find_duplicates`, because the latter may be
+changed in future.
+
 ### toolpot.scripting
 Tools for day to day OS automation.
 
